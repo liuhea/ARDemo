@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">阿里AR</string>
+    <string name="app_no_flash">手机没有闪光灯</string>
+    <string name="app_flash_failed">无法打开闪光灯</string>
+</resources>

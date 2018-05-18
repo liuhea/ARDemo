@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="bubble">
+        <item>@drawable/animal</item>
+        <item>@drawable/calculator</item>
+        <item>@drawable/elephant</item>
+        <item>@drawable/joke</item>
+        <item>@drawable/notepad</item>
+        <item>@drawable/notice</item>
+        <item>@drawable/phonebill</item>
+        <item>@drawable/poem</item>
+        <item>@drawable/song</item>
+        <item>@drawable/stock</item>
+        <item>@drawable/takeout</item>
+        <item>@drawable/time</item>
+        <item>@drawable/video</item>
+        <item>@drawable/weather</item>
+        <item>@drawable/whoami</item>
+    </array>
+</resources>
