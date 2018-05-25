@@ -35,7 +35,8 @@ public class ARActivity extends FragmentActivity {
             Bundle data = new Bundle();
             JSONObject jsonObj = new JSONObject();
             try {
-                jsonObj.put(ARConfigKey.AR_KEY, "10124292");
+//                jsonObj.put(ARConfigKey.AR_KEY, "10146335");
+                jsonObj.put(ARConfigKey.AR_KEY, "10146335");
                 jsonObj.put(ARConfigKey.AR_TYPE, arType);
             } catch (JSONException e) {
                 e.printStackTrace();

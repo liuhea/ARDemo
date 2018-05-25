@@ -12,10 +12,10 @@ public class ARApp extends Application {
 
         Res.addResource(this);
         // 设置App Id
-        DuMixARConfig.setAppId("11239118");
+        DuMixARConfig.setAppId("11292186");
         // 设置API Key
-        DuMixARConfig.setAPIKey("RHGFx1E2UYooUf10PvF4G3Gm");
+        DuMixARConfig.setAPIKey("vN3MEXOdIf9dDpbi3TPNjlDD");
 //        // 设置Secret Key
-        DuMixARConfig.setSecretKey("mpHkBdefDiLhBzZGN9Gf4kKvypAm5AWr ");
+        DuMixARConfig.setSecretKey("QqrwelGhWkmUFMvA7KSbMGklgtOdZfTE");
     }
 }
