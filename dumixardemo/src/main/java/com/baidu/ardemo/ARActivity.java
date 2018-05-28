@@ -35,9 +35,9 @@ public class ARActivity extends FragmentActivity {
             Bundle data = new Bundle();
             JSONObject jsonObj = new JSONObject();
             try {
-//                jsonObj.put(ARConfigKey.AR_KEY, "10146335");
-                jsonObj.put(ARConfigKey.AR_KEY, "10146335");
-                jsonObj.put(ARConfigKey.AR_TYPE, arType);
+                jsonObj.put(ARConfigKey.AR_KEY, "");
+//                ar type写上   本地识图（AR Type为6）和云端识图（AR Type为7）功能  AR Key可以传空
+                jsonObj.put(ARConfigKey.AR_TYPE, 6);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.baidu.ar.constants.ARConfigKey;
+
 public class MainActivity extends Activity {
     private String[] mArName;
     private String[] mArDesciption;
@@ -43,14 +45,20 @@ public class MainActivity extends Activity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, IntroActivity.class);
-                Bundle bundle = new Bundle();
+//                Intent intent = new Intent(MainActivity.this, IntroActivity.class);
+//                Bundle bundle = new Bundle();
                 ListItemBean listItemBean = mListData.get(position);
-                bundle.putString("ar_key", listItemBean.getARKey());
-                bundle.putInt("ar_type", listItemBean.getARType());
-                bundle.putString("name", listItemBean.getName());
-                bundle.putString("description", listItemBean.getDescription());
-                intent.putExtras(bundle);
+//                bundle.putString("ar_key", listItemBean.getARKey());
+//                bundle.putInt("ar_type", listItemBean.getARType());
+//                bundle.putString("name", listItemBean.getName());
+//                bundle.putString("description", listItemBean.getDescription());
+//                intent.putExtras(bundle);
+//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, ARActivity.class);
+                //                ar type写上   本地识图（AR Type为6）和云端识图（AR Type为7）功能  AR Key可以传空
+                intent.putExtra(ARConfigKey.AR_KEY, listItemBean.getARKey());
+                intent.putExtra(ARConfigKey.AR_TYPE, listItemBean.getARType());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
