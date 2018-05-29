@@ -1,11 +1,10 @@
-package com.example.weishengwws.myapplication;
+package com.lh.aliar;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,16 +16,13 @@ import com.alibaba.ailabs.ar.camera.CameraManager;
 import com.alibaba.ailabs.ar.core.Session;
 import com.alibaba.ailabs.ar.utils.ScreenUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
 /**
- * MainAcitivity extends ArActivity.
+ * XTArActivity extends ArActivity.
+ *
  * @author liuhe
  */
-public class MainActivity extends ArActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class XTArActivity extends ArActivity {
+    private static final String TAG = XTArActivity.class.getSimpleName();
 
     /**
      * Toolbar for main activity.
@@ -40,7 +36,7 @@ public class MainActivity extends ArActivity {
 
     /**
      * Backward button for toolbar.
-     替换
+     * 替换
      */
     private ImageButton backBtn = null;
 
@@ -53,15 +49,19 @@ public class MainActivity extends ArActivity {
      * Is first login from checkFirstLoginApp.
      */
     private boolean isFirstLogin = false;
-    
+
+    static void start(Context context) {
+        context.startActivity(new Intent(context, XTArActivity.class));
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         // Notify ar activity full screen is active.
         setFullScreenActive(true);
-        
+
         // Notify window to full screen mode. 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        
+
         // Ar activity on create.
         super.onCreate(savedInstanceState);
 
@@ -69,11 +69,11 @@ public class MainActivity extends ArActivity {
         initToolbar();
 
         // Init bubble bitmaps.
-        initBubbleBitmaps();
+//        initBubbleBitmaps();
     }
 
     /**
-     * Init toolbar for main activity. 
+     * Init toolbar for main activity.
      */
     private void initToolbar() {
         // Toolbar for main activity.
@@ -94,7 +94,7 @@ public class MainActivity extends ArActivity {
 
         // Toolbar add to top view.
         topView.addView(toolbar, toolbarLayout);
-        
+
         // Backward button.
         backBtn = new ImageButton(this);
         backBtn.setBackgroundResource(R.drawable.backward);
@@ -104,7 +104,7 @@ public class MainActivity extends ArActivity {
                 finish();
             }
         });
-        
+
         // Backward button layout params.
         RelativeLayout.LayoutParams backlayout = new RelativeLayout.LayoutParams(24, 24);
         backlayout.width = (int) (24 * ScreenUtils.getScreenDensity(this));
@@ -128,7 +128,7 @@ public class MainActivity extends ArActivity {
                 }
             }
         });
-        
+
         // Flash light button layout params. 
         RelativeLayout.LayoutParams flashlayout = new RelativeLayout.LayoutParams(15, 20);
         flashlayout.width = (int) (15 * ScreenUtils.getScreenDensity(this));
@@ -143,7 +143,7 @@ public class MainActivity extends ArActivity {
     /**
      * Toolbar visibility should be set for ar sdk if there is toolbar exist.
      *
-     * @param visibility    View visibility.
+     * @param visibility View visibility.
      */
     @Override
     public void setToolbarVisibility(int visibility) {
@@ -177,38 +177,38 @@ public class MainActivity extends ArActivity {
 
     private Bitmap[] bubbles = null;
 
-    private void initBubbleBitmaps() {
-        if (bubbles != null) {
-            Log.e(TAG, "initBubbleBitmaps: bubble is already exist");
-            return;
-        }
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = 2;
-                TypedArray typedArray = getResources().obtainTypedArray(R.array.bubble);
-                int typedArrayLen = typedArray.length();
-                int maxCount = 12;
-                int len = typedArrayLen < maxCount ? typedArrayLen : maxCount;
-                bubbles = new Bitmap[len];
-                // Random index.
-                int index;
-                Random random = new Random();
-                Map<String, String> map = new HashMap<>();
-                // Load bitmaps.
-                for (int i = 0; i < len; i++) {
-                    index = random.nextInt(typedArrayLen * 10) % (typedArrayLen);
-                    while (map.containsKey(String.valueOf(index))) {
-                        index = random.nextInt(typedArrayLen * 10) % (typedArrayLen);
-                    }
-                    map.put(String.valueOf(index), String.valueOf(index));
-                    bubbles[i] = BitmapFactory.decodeResource(getResources(), typedArray.getResourceId(index, -1), options);
-                }
-                typedArray.recycle();
-            }
-        }).start();
-    }
+//    private void initBubbleBitmaps() {
+//        if (bubbles != null) {
+//            Log.e(TAG, "initBubbleBitmaps: bubble is already exist");
+//            return;
+//        }
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                BitmapFactory.Options options = new BitmapFactory.Options();
+//                options.inSampleSize = 2;
+//                TypedArray typedArray = getResources().obtainTypedArray(R.array.bubble);
+//                int typedArrayLen = typedArray.length();
+//                int maxCount = 12;
+//                int len = typedArrayLen < maxCount ? typedArrayLen : maxCount;
+//                bubbles = new Bitmap[len];
+//                // Random index.
+//                int index;
+//                Random random = new Random();
+//                Map<String, String> map = new HashMap<>();
+//                // Load bitmaps.
+//                for (int i = 0; i < len; i++) {
+//                    index = random.nextInt(typedArrayLen * 10) % (typedArrayLen);
+//                    while (map.containsKey(String.valueOf(index))) {
+//                        index = random.nextInt(typedArrayLen * 10) % (typedArrayLen);
+//                    }
+//                    map.put(String.valueOf(index), String.valueOf(index));
+//                    bubbles[i] = BitmapFactory.decodeResource(getResources(), typedArray.getResourceId(index, -1), options);
+//                }
+//                typedArray.recycle();
+//            }
+//        }).start();
+//    }
 
     @Override
     protected Bitmap[] getBubbleBitmaps() {

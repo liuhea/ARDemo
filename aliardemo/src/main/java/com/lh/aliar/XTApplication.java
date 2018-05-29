@@ -1,4 +1,4 @@
-package com.example.weishengwws.myapplication;
+package com.lh.aliar;
 
 import com.alibaba.ailabs.ar.activity.ArApplication;
 
@@ -6,7 +6,7 @@ import com.alibaba.ailabs.ar.activity.ArApplication;
  * Created by weisheng.wws on 2018/5/18.
  */
 
-public class MyApplication extends ArApplication {
+public class XTApplication extends ArApplication {
     @Override
     public void onCreate() {
         super.onCreate();
