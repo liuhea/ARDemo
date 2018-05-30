@@ -16,6 +16,8 @@ import com.alibaba.ailabs.ar.camera.CameraManager;
 import com.alibaba.ailabs.ar.core.Session;
 import com.alibaba.ailabs.ar.utils.ScreenUtils;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  * XTArActivity extends ArActivity.
  *
@@ -23,7 +25,7 @@ import com.alibaba.ailabs.ar.utils.ScreenUtils;
  */
 public class XTArActivity extends ArActivity {
     private static final String TAG = XTArActivity.class.getSimpleName();
-
+AtomicBoolean
     /**
      * Toolbar for main activity.
      */

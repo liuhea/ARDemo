@@ -7,11 +7,11 @@ import com.alibaba.ailabs.ar.activity.ArApplication;
  */
 
 public class XTApplication extends ArApplication {
+
     @Override
     public void onCreate() {
         super.onCreate();
-
         // TODO: We need to access your key and secret to communicate with ar server.
-        init("24888883", "7c3e72021b6aba8b109baabf320c578c");
+        init("24910706", "76eeeb123b6ad355f927ab217bbe0d37");
     }
 }

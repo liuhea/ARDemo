@@ -17,7 +17,6 @@ import com.baidu.ar.constants.ARConfigKey;
 
 public class MainActivity extends Activity {
     private String[] mArName;
-    private String[] mArDesciption;
     private ListView mListView;
     private ArrayAdapter mAdapter;
     private List<ListItemBean> mListData;
@@ -33,7 +32,6 @@ public class MainActivity extends Activity {
     private void initData() {
         Resources res = getResources();
         mArName = res.getStringArray(R.array.ar_name);
-        mArDesciption = res.getStringArray(R.array.ar_description);
     }
 
     private void initView() {
@@ -45,17 +43,8 @@ public class MainActivity extends Activity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(MainActivity.this, IntroActivity.class);
-//                Bundle bundle = new Bundle();
-                ListItemBean listItemBean = mListData.get(position);
-//                bundle.putString("ar_key", listItemBean.getARKey());
-//                bundle.putInt("ar_type", listItemBean.getARType());
-//                bundle.putString("name", listItemBean.getName());
-//                bundle.putString("description", listItemBean.getDescription());
-//                intent.putExtras(bundle);
-//                startActivity(intent);
                 Intent intent = new Intent(MainActivity.this, ARActivity.class);
-                //                ar type写上   本地识图（AR Type为6）和云端识图（AR Type为7）功能  AR Key可以传空
+                ListItemBean listItemBean = mListData.get(position);
                 intent.putExtra(ARConfigKey.AR_KEY, listItemBean.getARKey());
                 intent.putExtra(ARConfigKey.AR_TYPE, listItemBean.getARType());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -66,16 +55,17 @@ public class MainActivity extends Activity {
 
     private List<ListItemBean> getListItemData() {
         List<ListItemBean> list = new ArrayList<>();
-        // SLAM AR 小熊
-        list.add(new ListItemBean(5, "您应用的ar_key", mArName[0], mArDesciption[0]));
-//        // 本地识图
-//        list.add(new ListItemBean(6, "", mArName[1], mArDesciption[1]));
+        // 2D识图
+        list.add(new ListItemBean(6, ""));
+        // 沙发 SLAM
+        list.add(new ListItemBean(5, "10156224"));
+        // IMU AR 请财神case
+        list.add(new ListItemBean(0, "10156258"));
 //        // 云端识图
 //        list.add(new ListItemBean(7, "", mArName[2], mArDesciption[2]));
 //        // Track AR城市地图case
 //        list.add(new ListItemBean(0, "您应用的ar_key", mArName[3], mArDesciption[3]));
-//        // IMU AR 请财神case
-//        list.add(new ListItemBean(0, "您应用的ar_key", mArName[4], mArDesciption[4]));
+
 //        // 语音
 //        list.add(new ListItemBean(0, "您应用的ar_key", mArName[5], mArDesciption[5]));
 //        // TTS
@@ -102,6 +92,11 @@ public class MainActivity extends Activity {
             this.mARKey = arKey;
             this.mName = name;
             this.mDescription = description;
+        }
+
+        public ListItemBean(int arType, String arKey) {
+            this.mARType = arType;
+            this.mARKey = arKey;
         }
 
         public String getARKey() {

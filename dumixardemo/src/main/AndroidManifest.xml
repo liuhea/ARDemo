@@ -27,10 +27,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-                android:name=".IntroActivity"
-                android:screenOrientation="portrait"/>
-
         <!--禁止分屏-->
         <activity
                 android:name=".ARActivity"
