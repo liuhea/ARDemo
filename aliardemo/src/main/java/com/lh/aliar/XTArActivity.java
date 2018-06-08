@@ -25,7 +25,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class XTArActivity extends ArActivity {
     private static final String TAG = XTArActivity.class.getSimpleName();
-AtomicBoolean
     /**
      * Toolbar for main activity.
      */

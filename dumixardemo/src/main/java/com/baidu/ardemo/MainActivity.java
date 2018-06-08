@@ -59,8 +59,12 @@ public class MainActivity extends Activity {
         list.add(new ListItemBean(6, ""));
         // 沙发 SLAM
         list.add(new ListItemBean(5, "10156371"));
+        // 小熊 SLAM
+        list.add(new ListItemBean(5, "10156381"));
         // IMU AR 请财神case
         list.add(new ListItemBean(0, "10156361"));
+        // IMU 天空盒效果
+        list.add(new ListItemBean(0, "10156426"));
 //        // 云端识图
 //        list.add(new ListItemBean(7, "", mArName[2], mArDesciption[2]));
 //        // Track AR城市地图case

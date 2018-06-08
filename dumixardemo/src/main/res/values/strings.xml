@@ -6,7 +6,9 @@
         <!--<item>本地识别（On-Device IR）</item>-->
         <item>图片跟踪（2D Tracking）</item>
         <item>家具（SLAM）</item>
+        <item>小熊（SLAM）</item>
         <item>请财神（IMU）</item>
+        <item>天空盒 景色（IMU）</item>
         <!--<item>语音识别（Speech Recognition）</item>-->
         <!--<item>语音合成（TTS）</item>-->
         <!--<item>滤镜</item>-->
